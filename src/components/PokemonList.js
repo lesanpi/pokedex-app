@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, FlatList, ActivityIndicator, Platform } from "react-native";
 import PokemonCard from "./PokemonCard";
 
 export default function PokemonList(props) {
     const { pokemons, loadPokemons, isNext } = props;
-
+    const [loading, setLoading] = useState(false)
     const loadMore = () => {
-        loadPokemons();
+        if (!loading) {
+            setLoading(true)
+            loadPokemons();
+            setLoading(false)
+        }
     }
 
     return (

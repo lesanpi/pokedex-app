@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getPokemonApi, getPokemonDetailsByUrlApi } from '../api/pokemon';
 import PokemonList from '../components/PokemonList';
+import { StatusBar } from "expo-status-bar";
 
 export default function Pokedex() {
 
@@ -43,6 +44,7 @@ export default function Pokedex() {
 
     return (
         <SafeAreaView>
+            <StatusBar style="dark" />
             <PokemonList pokemons={pokemons} loadPokemons={loadPokemons} isNext={nextUrl} />
         </SafeAreaView>
     );
